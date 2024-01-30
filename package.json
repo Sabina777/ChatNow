@@ -1,0 +1,25 @@
+{
+  "name": "chatnow",
+  "version": "1.0.0",
+  "description": "A real time Node.js chat application, allowing users to engage in real-time conversations, featuring a clean interface, emoji support, and quick user authentication. Simple, efficient, and ready for seamless communication.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sabina777/ChatNow.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sabina777/ChatNow/issues"
+  },
+  "homepage": "https://github.com/Sabina777/ChatNow#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.4"
+  }
+}
