@@ -4,35 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Real-Time Chat Application</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .message-box {
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .user-message {
+      background-color: #d4edda; /* Light green for user's messages */
+    }
+
+    .other-user-message {
+      background-color: #cce5ff; /* Light blue for messages from other users */
+    }
+  </style>
 </head>
 <body>
-  <h1>Real-Time Chat Application</h1>
-  <div id="messages"></div>
-<form id="form">
-  <input id="input" autocomplete="off" autofocus />
-  <button>Send</button>
-</form>
+  <div class="container mt-5">
+    <div class="card">
+      <div class="card-header text-center">
+        <h3>Real-Time Chat Application</h3>
+      </div>
+      <div class="card-body" id="messages-container">
+        <!-- Messages will be dynamically added here -->
+      </div>
+      <div class="card-footer">
+        <form id="form" class="form-inline">
+          <input id="input" class="form-control mr-2" autocomplete="off" autofocus />
+          <button id="submit-btn" class="btn btn-primary">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
   <script src="/socket.io/socket.io.js"></script>
-  <script>
-    const socket = io();
-    const messages = document.getElementById('messages');
-const form = document.getElementById('form');
-const input = document.getElementById('input');
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  if (input.value) {
-    socket.emit('chat message', input.value);
-    input.value = '';
-  }
-});
-
-socket.on('chat message', (msg) => {
-  const item = document.createElement('li');
-  item.textContent = msg;
-  messages.appendChild(item);
-  window.scrollTo(0, document.body.scrollHeight);
-});
-  </script>
+  <script src="/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-</html> 
+</html>
